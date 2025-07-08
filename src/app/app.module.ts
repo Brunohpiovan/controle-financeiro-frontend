@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
+// Para realizar requisições HTTP
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -32,6 +35,11 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogConfig, MatDialogModule } from '@a
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+     // Forms
+     FormsModule,
+     ReactiveFormsModule,
+     // Requisições http
+     HttpClientModule,
      // Angular Material
      MatFormFieldModule,
      MatPaginatorModule,
