@@ -1,1 +1,81 @@
-<p>register works!</p>
+<div class="login-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="title">Registre-se</mat-card-title>
+      <mat-card-subtitle>Seja bem-vindo(a)</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <span>Nome de Usuário</span>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput formControlName="username" autocomplete="username" placeholder="username" />
+          <mat-error *ngIf="username?.hasError('required')">
+            O nome de usuário é obrigatório
+          </mat-error>
+          <mat-error *ngIf="username?.hasError('minlength')">
+            Mínimo 3 caracteres
+          </mat-error>
+        </mat-form-field>
+
+        <span>Senha</span>
+        <mat-form-field appearance="outline" class="full-width">
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            autocomplete="current-password"
+            placeholder="············"
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Toggle password visibility'"
+            [attr.aria-pressed]="!hidePassword"
+          >
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="password?.hasError('required')">
+            A senha é obrigatória
+          </mat-error>
+          <mat-error *ngIf="password?.hasError('minlength')">
+            Mínimo 6 caracteres
+          </mat-error>
+        </mat-form-field>
+
+        <span>Confirme a Senha</span>
+        <mat-form-field appearance="outline" class="full-width">
+          <input
+            matInput
+            [type]="hidePassword2 ? 'password' : 'text'"
+            formControlName="confirmPassword"
+            autocomplete="current-password"
+            placeholder="············"
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword2 = !hidePassword2"
+            [attr.aria-label]="'Toggle password visibility'"
+            [attr.aria-pressed]="!hidePassword2"
+          >
+            <mat-icon>{{ hidePassword2 ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="confirmPassword?.hasError('required')">
+            A senha é obrigatória
+          </mat-error>
+          <mat-error *ngIf="confirmPassword?.hasError('minlength')">
+            Mínimo 6 caracteres
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button type="submit" class="full-width btn">
+          Entrar
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
