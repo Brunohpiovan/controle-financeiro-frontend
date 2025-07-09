@@ -59,6 +59,7 @@ mat-card-subtitle{
   font-family: 'Montserrat', sans-serif !important;
   font-size: 1.1rem;
   margin-top: 2.5rem;
+  margin-bottom: .8rem;
   padding: 5px 0px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -82,6 +83,10 @@ mat-form-field{
 :host::ng-deep .mat-form-field-infix{
   border-top: 0 !important;
   margin-top: 4px;
+}
+.eqSenha a{
+  text-decoration: none;
+  color: #001f8a;
 }
 
 :host::ng-deep .mat-form-field-subscript-wrapper{
