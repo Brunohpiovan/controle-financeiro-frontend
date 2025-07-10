@@ -25,6 +25,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
 import { NavComponent } from './components/menu/nav/nav.component';
+import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { NavComponent } from './components/menu/nav/nav.component';
      MatCardModule,
      MatDialogModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
